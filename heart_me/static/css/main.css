@@ -1,0 +1,31 @@
+header nav {
+    background-color: 
+    rgb(148 163 184/var(--tw-text-opacity));
+    border-radius: 1em;
+    background-blend-mode: darken;
+    filter: blur(0.2px);
+    -webkit-filter: blur(0.2px);
+    color: red;
+  }
+  header a {
+    color: blue;
+  }
+  header span {
+    display: flex;
+    position: sticky;
+    height: 50px;
+    width: 50px;
+  }
+  @media only screen and (max-width:350px){
+    body{
+        background-color: #4e5154!important;
+    }
+    .change {
+        display:flexbox;
+        flex-grow: 20px;
+    margin-top: 20px;
+    }
+  }
+  .boximage{
+    border-radius: 1em;
+  }

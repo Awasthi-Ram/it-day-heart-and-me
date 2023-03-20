@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
-from .forms import HeartDiseaseForm , registerForm
+from .forms import HeartDiseaseForm 
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User,auth
 from django.contrib.auth import login

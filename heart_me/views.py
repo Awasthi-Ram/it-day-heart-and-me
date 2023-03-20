@@ -8,12 +8,13 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User,auth
 from django.contrib.auth import login
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
     return render(request,"pages/main.html")
 
-
+@login_required(login_url='acc_login')
 def heart(request):
     
     if request.method == 'POST':
@@ -29,6 +30,7 @@ def heart(request):
 
     return render(request, 'pages/heart.html', {'form': form})
 
+@login_required(login_url='acc_login')
 def heart_predictor(request):
     
     df = pd.read_csv("static/Heart_train.csv")
@@ -98,6 +100,7 @@ def heart_predictor(request):
                       'form': HeartDiseaseForm(),
                   })
     
+
 def register(request):
    # if request.method == 'POST':
    #if request.method == "POST":

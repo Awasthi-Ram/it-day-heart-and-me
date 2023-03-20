@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<style>
+    #content{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-content: center;
+       }
+    #content >a{
+        border:1px solid black;
+        padding: 20px;
+        font-size: larger;
+        font-style: oblique;
+        flex-grow: 1;
+        font-family:'Times New Roman', Times, serif;
+        height: 20vh;
+    }
+    a{
+        text-decoration: none;
+        color:black;
+    }
+    #content>a>i{
+        font-size: larger;
+
+    }
+</style>
+{% endblock%}
+{% block body %}
+<div id="content">
+    <a href="{% url 'acc_logout' %}"><i class="fa fa-sign-out"></i> Logout</a>
+    <a ><i class="fa fa-info-circle"></i> About Site </a>
+    <a href="{% url 'acc_delete' %}"><i class="fa fa-trash" style="color: red;"></i> Delete Account</a>
+</div>
+{% endblock %}

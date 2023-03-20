@@ -1,5 +1,5 @@
 from django import forms
-from django_countries.data import COUNTRIES
+#from django_countries.data import COUNTRIES
 
 class HeartDiseaseForm(forms.Form):
     
@@ -18,6 +18,7 @@ class HeartDiseaseForm(forms.Form):
     thal = forms.FloatField(label='THAL', min_value=0, max_value=100, widget=forms.NumberInput(attrs={'class': 'form-control'}))
 
     captcha_answer = forms.IntegerField(label='2 + 2', label_suffix=' =')
+"""    
 class registerForm(forms.Form):
     name = forms.CharField(label='name' ,initial="" ,widget=forms.TextInput(attrs={'class':'form-control'}),max_length=100,error_messages={'required': 'Please enter your name'}  )
     age = forms.IntegerField(label='age', min_value=0, max_value=100,initial="",widget=forms.NumberInput(attrs={'class': 'form-control'}),error_messages={'required': 'Please enter your age'})
@@ -34,3 +35,4 @@ class registerForm(forms.Form):
     confirm_Password= forms.CharField(label='Confirm password' ,initial="" ,widget=forms.TextInput(attrs={'class':'form-control'}),max_length=100,error_messages={'required': 'Please enter your name'}  )
     Agreeing_to_terms_and_conditions= forms.CharField(label='Agreeing to  terms and conditions' ,initial="" ,widget=forms.CheckboxInput(attrs={'class':'form-control'}),max_length=100, help_text='100 characters max.',error_messages={'required': 'Please enter your name'}  )
     captcha_answer = forms.IntegerField(label='2 + 2', label_suffix=' =')
+    """

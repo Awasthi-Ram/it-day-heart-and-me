@@ -1,4 +1,4 @@
-from django.shortcuts import render,reverse
+from django.shortcuts import render,reverse,redirect
 from django.http import HttpResponse,HttpResponseRedirect
 from .forms import SignupForm,LoginForm
 from django.contrib import auth
@@ -17,7 +17,7 @@ def signup(request):
             user=auth.authenticate(username=form.cleaned_data.get('username'),password=form.cleaned_data.get('password1'))
             if user is not None:
                 auth.login(request,user)
-            return HttpResponseRedirect(reverse("acc_profile"))
+            return redirect("/")
     else:
         form=SignupForm()
     return render(request,'acc/signup.html',{'form':form})
@@ -31,7 +31,7 @@ def login(request):
             if user is not None:
                 auth.login(request,user)
                 print("login")
-                return HttpResponseRedirect(reverse("acc_profile"))
+                return redirect("/")
             else:
                 messages.info(request,"Invalid password")
                 return HttpResponseRedirect(reverse('acc_login'))

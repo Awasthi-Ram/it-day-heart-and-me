@@ -83,7 +83,9 @@
                   </div>
                 </div>
               </div>
-        <button type="button" class="btn btn-outline-light   btn-sm">Dark</button>
+        {% if not request.user.is_authenticated %}
+          <a type="button" class="btn btn-outline-light   btn-sm" href="/acc/login">Login</a>
+        {% endif %}
       </form>
     </div>
     </nav>

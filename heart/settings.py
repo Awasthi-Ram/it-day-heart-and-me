@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     #'django_countries',
+    
     'heart_me',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'acc'
+    'acc',
+    #'chat',
+    #'chatroom'
 ]
 
 MIDDLEWARE = [

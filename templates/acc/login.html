@@ -1,52 +1,86 @@
 {% extends 'base.html' %}
-{% load static %}
-{% block head %}
-<style>
-    .errorlist{
-        color:black;
-        list-style-type: none;
-        list-style-position: outside;
-        text-transform: capitalize;
-    }
 
-input{
-    width: 50vw;
-    border-style: none none solid none;
-    border-width: 0px 0px 1px 0px;
-    border-color: rgba(0, 0, 0, 0.747);
-}
-fieldset{
-    background: linear-gradient(yellow,red);
-    padding: 20px;
-}
-body{
-    background-color: azure;
-}
-</style>
+{% load static %}
+
+{% block head %}
+    <style>
+        body {
+            background-image: url("{% static 'style/background.jpg' %}");
+            background-size: cover;
+            color: #fff;
+        }
+
+        input {
+            width: 50vw;
+            border-style: none none solid none;
+            border-width: 0px 0px 1px 0px;
+            border-color: rgba(255, 255, 255, 0.5);
+            background-color: transparent;
+            color: #fff;
+        }
+
+        fieldset {
+            background-color: rgba(0, 0, 0, 0.7);
+            border: none;
+            padding: 20px;
+            border-radius: 10px;
+            opacity: 0.8;
+        }
+
+        h1, h3 {
+            color: #fff;
+        }
+
+        a {
+            color: #2db5d4;
+            text-decoration: none;
+        }
+
+        input[type="submit"] {
+            background-color: #2db5d4;
+            color: #fff;
+            border-radius: 5px;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .errorlist {
+            color: #ff4444;
+            list-style-type: none;
+            list-style-position: outside;
+            text-transform: capitalize;
+        }
+    </style>
 {% endblock %}
+
 {% block body %}
-<fieldset class="container text-center">
-    <h1>Login</h1>
-    <hr>
-<form action="{% url 'acc_login' %}" method="POST">
-    {% csrf_token %}
-    {{form.non_field_errors}}
-    {% for field in form %}
-    <p>
-    {{field}}
-    {{field.errors}}
-    </p>
-    <hr>
-    {% endfor%}
-    {% if messages %}
-    {% for m in messages %}
-    <h4>{{m}}</h4>
-    <hr>
-    {% endfor%}
-    {% endif%}
-    <input type="submit" value="Login" style="width:50vw;" class="btn btn-success"/>
-    <hr>
-</form>
-<p><h3>Don't  have account? <a href="{% url 'acc_signup' %}" style="color: blue;">Signup</a></h3></p>
-</fieldset>
-{% endblock%}
+    <div class="background-image">
+        <fieldset class="container text-center">
+            <h1>Login</h1>
+            <hr>
+            <form action="{% url 'acc_login' %}" method="POST">
+                {% csrf_token %}
+                {{form.non_field_errors}}
+                {% for field in form %}
+                    <p>
+                        {{field}}
+                        {{field.errors}}
+                    </p>
+                    <hr>
+                {% endfor%}
+                {% if messages %}
+                    {% for m in messages %}
+                        <h4>{{m}}</h4>
+                        <hr>
+                    {% endfor%}
+                {% endif%}
+                <input type="submit" value="Login" class="btn btn-success"/>
+                <hr>
+            </form>
+            <p><h3>Don't have an account? <a href="{% url 'acc_signup' %}" style="color: #2db5d4;">Signup</a></h3></p>
+        </fieldset>
+    </div>
+{% endblock %}
